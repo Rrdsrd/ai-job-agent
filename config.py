@@ -100,16 +100,3 @@ EXCLUDED_TITLE_KEYWORDS = [
     "test automation",
     "software tester"
 ]
-
-
-EXCLUDED_TITLE_KEYWORDS = [
-    "intern",
-    "internship",
-    "graduate trainee",
-    "new grad",
-    "qa",
-    "quality assurance",
-    "sdet",
-    "test automation",
-    "software tester"
-]

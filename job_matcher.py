@@ -1,7 +1,7 @@
 
 import re
 import html
-
+from config import JOB_PREFERENCES
 
 SKILL_KEYWORDS = {
     "Python": ["python"],
@@ -195,17 +195,14 @@ def evaluate_job(job, profile_text):
     }
 
 
-def rank_jobs(jobs, profile_file="candidate_profile.txt"):
-
-    with open(profile_file, "r", encoding="utf-8") as file:
-        profile_text = file.read()
+def rank_jobs(jobs):
+    profile_text = " ".join(JOB_PREFERENCES["skills"])
 
     ranked_jobs = [
         evaluate_job(job, profile_text)
         for job in jobs
     ]
 
-    # Highest match score first
     ranked_jobs.sort(
         key=lambda job: job["match_score"],
         reverse=True
@@ -214,9 +211,9 @@ def rank_jobs(jobs, profile_file="candidate_profile.txt"):
     return ranked_jobs
 
 
-def analyze_job_match(job, profile_file="candidate_profile.txt"):
+def analyze_job_match(job):
 
-    ranked = rank_jobs([job], profile_file)
+    ranked = rank_jobs([job])
     result = ranked[0]
 
     return f"""
