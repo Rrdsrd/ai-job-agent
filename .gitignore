@@ -1,0 +1,6 @@
+.env
+venv/
+__pycache__/
+*.pyc
+candidate_profile.txt
+.streamlit/secrets.toml
